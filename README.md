@@ -1,4 +1,4 @@
-# indoor Flight Arena ROS Environment for Reinforcement Learning
+# Indoor Flight Arena ROS Environment for Reinforcement Learning
 
 This repository contains the ROS environment necessary for launching and controlling the **drone** robot in a Gazebo simulation. For Gazebo and Rviz based RL simulation training programs. Built a sensor and simulation environment started by sdf and urdf commands.
 ## Table of Contents
