@@ -1,0 +1,51 @@
+<launch>
+  <arg name="gui" value="true"/>
+  <arg name="rviz" value="true"/>
+  <!-- TD3_i_map for I shaped map or TD3.world for our map -->
+  <arg name="world_name" value="$(find multi_robot_scenario)/worlds/TD3.world"/>
+    <!-- Gazebo  -->
+    <include file="$(find multi_robot_scenario)/launch/empty_world.launch">
+      <arg name="gui" value="$(arg gui)" />
+      <arg name="world_name" value="$(arg world_name)" />
+      <arg name="paused" value="false"/>
+    </include>
+
+  <arg name="robot_name" default="drone" />
+  <arg name="node_start_delay" default="0.0" />
+  <arg name="robot_position" default="-x 1 -y 6 -z 0.01 -R 0 -P 0 -Y 1.5708" />
+
+  <!-- Load the SDF into the simulation -->
+  <node name="spawn_sdf_obstacal1" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+      launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "
+      args="-sdf -file $(find multi_robot_scenario)/models/obstacal1/model.sdf -model obstacal1 -x 2.0 -y 3.0 -z 0.0 -R 0 -P 0 -Y -1.5708"/>
+    
+  <node name="spawn_sdf_obstacal3" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+      launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "
+      args="-sdf -file $(find multi_robot_scenario)/models/obstacal1/model.sdf -model obstacal3 -x 8.0 -y 5.0 -z 0.0 -R 0 -P 0 -Y -1.5708"/>
+    
+  <node name="spawn_sdf_obstacal2" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+      launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "
+      args="-sdf -file $(find multi_robot_scenario)/models/obstacal2/model.sdf -model obstacal2 -x -5.5 -y 5.0 -z 0.0 -R 0 -P 0 -Y -1.5708"/>
+
+  <node name="spawn_sdf_newtarget" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+      launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "
+      args="-sdf -file $(find multi_robot_scenario)/models/newtarget/newtarget.sdf -model newtarget -x 9.0 -y 2.0 -z 0.0 -R 1.5707 -P 0 -Y 0"/>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find multi_robot_scenario)/xacro/drone/drone.xacro'" />
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+      launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " 
+      args="-urdf -model $(arg robot_name) -param robot_description $(arg robot_position) "/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0"/>
+    <!--<param name="tf_prefix" type="string" value="$(arg robot_name)"/>-->
+  </node>
+
+<node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0"/>
+</node>
+
+</launch>

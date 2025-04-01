@@ -1,0 +1,13 @@
+material celling
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture celling.jpeg
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+material obstacal1
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture obstacal1.jpg
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sdf version='1.7'>
+  <model name='newtarget'>
+    <static>true</static>
+    <link name='base_link'>
+      <collision name='base_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://newtarget/meshes/newtarget.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://newtarget/meshes/newtarget.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://newtarget/materials/scripts</uri>
+            <uri>model://newtarget/materials/textures</uri>
+            <name>newtarget</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

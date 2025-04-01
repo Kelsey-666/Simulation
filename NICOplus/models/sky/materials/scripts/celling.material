@@ -1,0 +1,13 @@
+material sky
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture sky.jpg
+      }
+    }
+  }
+}
