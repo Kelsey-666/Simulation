@@ -51,12 +51,12 @@ Radar [noisy (Gaussian 0.7/0.007) visual radar line (position detection error)]
 
 Note: The glass part has no collision model, only visual model, and its transparency is 0.2. At the same time, the transmittance to radar light is 0.85, and the reflectivity is 0.15. This is achieved by the following key code:
 
-`        <material>Gazebo/Glass</material>
-          <laser_retro>0</laser_retro>
-          <sensor name="laser_transparency">
-          <transmissivity>0.85</transmissivity>
-          <reflectivity>0.15</reflectivity> 
-        </sensor>`
+`        <material>Gazebo/Glass</material>`
+`         <laser_retro>0</laser_retro>`
+`         <sensor name="laser_transparency">`
+`         <transmissivity>0.85</transmissivity>`
+`         <reflectivity>0.15</reflectivity>`
+`        </sensor>`
 
 #### 2.Drone collision volume handling
 
