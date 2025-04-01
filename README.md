@@ -17,7 +17,8 @@ The environment supports launching the **drone** robot in Gazebo or Rviz. It inc
 ### I. Overall scene effects
 
 ![Screenshot 2025-03-27 151904](https://github.com/user-attachments/assets/1508fb0c-3bcf-4293-b9c8-971681a3629f)
-
+![Screenshot 2025-03-21 145248](https://github.com/user-attachments/assets/f5de7ec9-e35d-4cb2-b2b1-136d5e81efaf)
+![A_Inside_overview](https://github.com/user-attachments/assets/13d1869b-fa0b-4109-a198-16793a4f206e)
 
 ### II. Sensor modelling effects
 
@@ -25,27 +26,28 @@ The environment supports launching the **drone** robot in Gazebo or Rviz. It inc
 
 Camera [Noise-free image (160*160)]
 
-![Screenshot 2025-03-26 172302](C:\Users\yuanx\Pictures\Screenshots\Screenshot 2025-03-26 172302.png)
+![A_Camera_without_noise](https://github.com/user-attachments/assets/75fd6bd7-2ebd-4a15-92a1-634641148bdd)
 
 Camera [noisy (Gaussian noise 0.7/0.007) image (160*160, image cropped)]
 
-![Screenshot 2025-03-27 162118](C:\Users\yuanx\Pictures\Screenshots\Screenshot 2025-03-27 162118.png)
+![A_Camera_with_noise](https://github.com/user-attachments/assets/e5222dde-c6e0-4387-adf5-22c2d6a8384a)
 
 #### 2. Radar
 
 Radar [noiseless visualisation of radar lines]
 
-![Screenshot 2025-03-27 154940](C:\Users\yuanx\Pictures\Screenshots\Screenshot 2025-03-27 154940.png)
+![A_Lidar_without_noise](https://github.com/user-attachments/assets/8e2bcfd8-607d-43a2-994c-f0b23231c7ab)
 
 Radar [noisy (Gaussian 0.7/0.007) visual radar line (position detection error)]
 
-![Screenshot 2025-03-27 162027](C:\Users\yuanx\Pictures\Screenshots\Screenshot 2025-03-27 162027.png)
+![A_Lidar_with_noise](https://github.com/user-attachments/assets/d4e31dc0-8b25-4cbf-8508-c043ee82ef99)
 
 ### III. Special modelling notes
 
 #### 1.Glass material
 
-![Screenshot 2025-03-27 160456](C:\Users\yuanx\Pictures\Screenshots\Screenshot 2025-03-27 160456.png)
+![A_Glsaa VisualLidar_performance](https://github.com/user-attachments/assets/31184e24-1e83-4314-b790-ef1948097fe6)
+![A_Glsaa VisualLidar_performance](https://github.com/user-attachments/assets/9f981393-fe7a-4f68-b969-2ee157ad99d4)
 
 Note: The glass part has no collision model, only visual model, and its transparency is 0.2. At the same time, the transmittance to radar light is 0.85, and the reflectivity is 0.15. This is achieved by the following key code:
 
@@ -58,13 +60,9 @@ Note: The glass part has no collision model, only visual model, and its transpar
 
 #### 2.Drone collision volume handling
 
-![Screenshot 2025-03-27 153221](C:\Users\yuanx\Pictures\Screenshots\Screenshot 2025-03-27 153221.png)
+![A_UAV_coliision_model](https://github.com/user-attachments/assets/3201c3f0-0e0c-4e70-8339-c7e7db5bf38f)
 
 Note: Considering that the UAV needs a geo-fence to prevent possible physical collisions, the collision volume of the UAV is constructed as a cylinder with an additional radius of 0.5m.
-
-
-
-
 
 ## Installation
 
