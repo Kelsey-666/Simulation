@@ -47,7 +47,7 @@ Radar [noisy (Gaussian 0.7/0.007) visual radar line (position detection error)]
 #### 1.Glass material
 
 ![A_Glsaa VisualLidar_performance](https://github.com/user-attachments/assets/31184e24-1e83-4314-b790-ef1948097fe6)
-![A_Glsaa VisualLidar_performance](https://github.com/user-attachments/assets/9f981393-fe7a-4f68-b969-2ee157ad99d4)
+![A_Glass_performance](https://github.com/user-attachments/assets/71d2b9d8-2386-4ae3-baea-56ddcb85dc25)
 
 Note: The glass part has no collision model, only visual model, and its transparency is 0.2. At the same time, the transmittance to radar light is 0.85, and the reflectivity is 0.15. This is achieved by the following key code:
 
